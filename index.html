@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flutter — Guia de Instalação</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<div class="bg-glow bg-glow-3"></div>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-box">🐦</div>
+    Flutter Guide
+  </div>
+  <div class="nav-links">
+    <button onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">Visão Geral</button>
+    <button onclick="document.getElementById('steps').scrollIntoView({behavior:'smooth'})">Passos</button>
+    <button onclick="document.getElementById('commands').scrollIntoView({behavior:'smooth'})">Comandos</button>
+  </div>
+  <div class="nav-progress">
+    <span id="navProgText">0/5</span>
+    <div class="nav-prog-bar"><div class="nav-prog-fill" id="navProgFill"></div></div>
+  </div>
+</nav>
+
+<div class="hero-particles" id="particles"></div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><div class="pulse-dot"></div>Guia Interativo · Flutter SDK · VS Code</div>
+    <h1 class="hero-title">
+      <span class="line1">Instale o</span>
+      <span class="line2">Flutter</span>
+    </h1>
+    <p class="hero-sub">Guia passo a passo para configurar o Flutter SDK no seu computador com VS Code — do zero ao primeiro projeto.</p>
+    <div class="hero-btn-wrap">
+      <button class="btn-start" onclick="document.getElementById('steps').scrollIntoView({behavior:'smooth'})">
+        Começar agora <span class="btn-arrow">→</span>
+      </button>
+    </div>
+    <div class="hero-metrics">
+      <div class="metric"><div class="metric-val">5</div><div class="metric-lbl">Passos</div></div>
+      <div class="metric-sep"></div>
+      <div class="metric"><div class="metric-val">~10</div><div class="metric-lbl">Minutos</div></div>
+      <div class="metric-sep"></div>
+      <div class="metric"><div class="metric-val">3.x</div><div class="metric-lbl">Versão</div></div>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<main>
+<section id="overview">
+  <div class="section-head">
+    <div class="s-tag">// O que você vai fazer</div>
+    <div class="s-title">Visão Geral</div>
+  </div>
+  <div class="ov-grid">
+    <div class="ov-card">
+      <div class="ov-card-num">01 / DOWNLOAD</div>
+      <div class="ov-card-icon" style="background:rgba(74,58,158,.2)">🌐</div>
+      <div class="ov-card-title">Baixar o SDK</div>
+      <div class="ov-card-text">Acesse o site oficial do Flutter e baixe o SDK para o seu sistema operacional.</div>
+      <div class="ov-glow" style="background:var(--p2)"></div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-card-num">02 / EDITOR</div>
+      <div class="ov-card-icon" style="background:rgba(191,110,255,.15)">🔌</div>
+      <div class="ov-card-title">Extensão VS Code</div>
+      <div class="ov-card-text">Instale a extensão oficial Flutter no VS Code para ambiente completo de desenvolvimento.</div>
+      <div class="ov-glow" style="background:var(--acc)"></div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-card-num">03 / PROJETO</div>
+      <div class="ov-card-icon" style="background:rgba(78,240,192,.1)">⚡</div>
+      <div class="ov-card-title">Novo Projeto</div>
+      <div class="ov-card-text">Use a Command Palette do VS Code para criar seu primeiro projeto Flutter em segundos.</div>
+      <div class="ov-glow" style="background:var(--teal)"></div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-card-num">04 / CLONAGEM</div>
+      <div class="ov-card-icon" style="background:rgba(124,92,196,.15)">📦</div>
+      <div class="ov-card-title">Instalar SDK</div>
+      <div class="ov-card-text">Escolha a pasta de instalação e aguarde o VS Code clonar o repositório Flutter.</div>
+      <div class="ov-glow" style="background:var(--p3)"></div>
+    </div>
+  </div>
+</section>
+
+<section id="steps">
+  <div class="section-head">
+    <div class="s-tag">// Siga o guia</div>
+    <div class="s-title">Instalação Passo a Passo</div>
+  </div>
+  <div class="steps-layout">
+    <div class="steps-sidebar">
+      <div class="sidebar-title">// navegação</div>
+      <div class="sidebar-step active" onclick="jumpTo(0)"><div class="ss-num">01</div><div class="ss-label">Baixar Flutter SDK</div><div class="ss-check">✓</div></div>
+      <div class="sidebar-step" onclick="jumpTo(1)"><div class="ss-num">02</div><div class="ss-label">Selecionar o SO</div><div class="ss-check">✓</div></div>
+      <div class="sidebar-step" onclick="jumpTo(2)"><div class="ss-num">03</div><div class="ss-label">Extensão VS Code</div><div class="ss-check">✓</div></div>
+      <div class="sidebar-step" onclick="jumpTo(3)"><div class="ss-num">04</div><div class="ss-label">Criar Projeto</div><div class="ss-check">✓</div></div>
+      <div class="sidebar-step" onclick="jumpTo(4)"><div class="ss-num">05</div><div class="ss-label">Clonar o SDK</div><div class="ss-check">✓</div></div>
+      <div class="sidebar-prog">
+        <div class="sp-label"><span>Progresso</span></div>
+        <div class="sp-bar"><div class="sp-fill" id="spFill"></div></div>
+        <div class="sp-count"><span id="spDone">0</span> de 5 concluídos</div>
+      </div>
+    </div>
+
+    <div class="steps-main">
+      <!-- STEP 1 -->
+      <div class="step-card active" data-step="0">
+        <div class="step-top" onclick="toggle(0)">
+          <div class="st-num">01</div>
+          <div class="st-info"><div class="st-title">Baixar o Flutter SDK</div><div class="st-sub">Acesse o site oficial e inicie o download</div></div>
+          <div class="st-toggle">›</div>
+        </div>
+        <div class="step-body"><div class="step-inner">
+          <div class="step-visual"><div class="sv-bg"></div><div class="sv-grid"></div><div class="sv-glow" style="background:var(--p2)"></div><div class="sv-icon">🌐</div></div>
+          <div class="step-prose"><p>Abra o navegador e pesquise por <span class="hl">Flutter download</span> no Google, ou acesse diretamente o site oficial:</p></div>
+          <div class="code"><span>flutter.dev</span><button class="copy-btn" onclick="cp('flutter.dev',this)">copiar</button></div>
+          <div class="step-prose"><p>No site oficial, clique em <span class="hl">Get started</span> para acessar a página de instalação. Em seguida, clique em <span class="hl2">Quick Start</span>.</p></div>
+          <div class="tip"><span class="tip-i">💡</span>Sempre use o <strong>stable channel</strong> para projetos — é a versão mais confiável e testada do Flutter.</div>
+          <div class="step-actions">
+            <button class="btn-done" onclick="markDone(0)">✓ Concluído</button>
+            <button class="btn-fwd" onclick="next(0)">Próximo →</button>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-card" data-step="1">
+        <div class="step-top" onclick="toggle(1)">
+          <div class="st-num">02</div>
+          <div class="st-info"><div class="st-title">Selecionar seu Sistema Operacional</div><div class="st-sub">As instruções variam por plataforma</div></div>
+          <div class="st-toggle">›</div>
+        </div>
+        <div class="step-body"><div class="step-inner">
+          <div class="step-visual"><div class="sv-bg"></div><div class="sv-grid"></div><div class="sv-glow" style="background:var(--acc)"></div><div class="sv-icon">💻</div></div>
+          <div class="step-prose"><p>Na página do Flutter, selecione seu <span class="hl">Sistema Operacional</span>. Clique no seu abaixo para ver as dicas específicas:</p></div>
+          <div class="os-grid">
+            <div class="os-card selected" onclick="selectOS(this,'win')"><div class="os-icon">🪟</div><div class="os-label">Windows</div></div>
+            <div class="os-card" onclick="selectOS(this,'mac')"><div class="os-icon">🍎</div><div class="os-label">macOS</div></div>
+            <div class="os-card" onclick="selectOS(this,'linux')"><div class="os-icon">🐧</div><div class="os-label">Linux</div></div>
+          </div>
+          <div id="os-win">
+            <div class="warn"><span class="tip-i">⚠️</span>Instale em um caminho <strong>sem espaços</strong>, como <kbd>C:\src\flutter</kbd>. Evite C:\Program Files.</div>
+            <ul class="checklist">
+              <li><span class="cl-dot">◆</span>Baixe o arquivo <kbd>.zip</kbd> e extraia na pasta escolhida</li>
+              <li><span class="cl-dot">◆</span>Adicione o caminho <kbd>flutter\bin</kbd> ao PATH do sistema</li>
+            </ul>
+          </div>
+          <div id="os-mac" style="display:none">
+            <div class="tip"><span class="tip-i">💡</span>No macOS, você pode usar o <kbd>Homebrew</kbd> para facilitar a instalação.</div>
+            <ul class="checklist">
+              <li><span class="cl-dot">◆</span>Baixe o <kbd>.zip</kbd> ou use <kbd>brew install --cask flutter</kbd></li>
+              <li><span class="cl-dot">◆</span>Adicione o Flutter ao seu <kbd>~/.zshrc</kbd> ou <kbd>~/.bashrc</kbd></li>
+            </ul>
+          </div>
+          <div id="os-linux" style="display:none">
+            <div class="tip"><span class="tip-i">💡</span>No Linux, o Snap é a forma mais fácil de instalar.</div>
+            <ul class="checklist">
+              <li><span class="cl-dot">◆</span>Use <kbd>sudo snap install flutter --classic</kbd></li>
+              <li><span class="cl-dot">◆</span>Ou baixe o <kbd>.tar.xz</kbd> e configure o PATH manualmente</li>
+            </ul>
+          </div>
+          <div class="step-actions">
+            <button class="btn-done" onclick="markDone(1)">✓ Concluído</button>
+            <button class="btn-fwd" onclick="next(1)">Próximo →</button>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-card" data-step="2">
+        <div class="step-top" onclick="toggle(2)">
+          <div class="st-num">03</div>
+          <div class="st-info"><div class="st-title">Instalar a Extensão Flutter no VS Code</div><div class="st-sub">Configure o editor para desenvolvimento Flutter</div></div>
+          <div class="st-toggle">›</div>
+        </div>
+        <div class="step-body"><div class="step-inner">
+          <div class="step-visual"><div class="sv-bg"></div><div class="sv-grid"></div><div class="sv-glow" style="background:var(--teal)"></div><div class="sv-icon">🔌</div></div>
+          <div class="step-prose"><p>Abra o <span class="hl">Visual Studio Code</span>. Na barra lateral esquerda, clique no ícone de <span class="hl2">Extensions</span> (o ícone mais abaixo), ou use o atalho:</p></div>
+          <div class="code"><span><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd></span><span style="color:var(--faint);font-size:.7rem">abrir extensions</span></div>
+          <div class="step-prose"><p>Na barra de busca, digite <span class="hl">Flutter</span> e instale a extensão oficial — é o primeiro resultado, com o ícone azul do Flutter.</p></div>
+          <div class="tip"><span class="tip-i">💡</span>A extensão Flutter instala a extensão <strong>Dart</strong> automaticamente — ela é necessária para o desenvolvimento.</div>
+          <ul class="checklist">
+            <li><span class="cl-dot">◆</span>Certifique-se que é a extensão do <strong>Dart Code</strong> (verificada)</li>
+            <li><span class="cl-dot">◆</span>Aguarde a instalação completa antes de continuar</li>
+          </ul>
+          <div class="step-actions">
+            <button class="btn-done" onclick="markDone(2)">✓ Concluído</button>
+            <button class="btn-fwd" onclick="next(2)">Próximo →</button>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step-card" data-step="3">
+        <div class="step-top" onclick="toggle(3)">
+          <div class="st-num">04</div>
+          <div class="st-info"><div class="st-title">Criar Novo Projeto via Command Palette</div><div class="st-sub">Use Flutter: New Project para iniciar</div></div>
+          <div class="st-toggle">›</div>
+        </div>
+        <div class="step-body"><div class="step-inner">
+          <div class="step-visual"><div class="sv-bg"></div><div class="sv-grid"></div><div class="sv-glow" style="background:var(--p3)"></div><div class="sv-icon">⚡</div></div>
+          <div class="step-prose"><p>No VS Code, abra a <span class="hl">Command Palette</span> pelo menu <span class="hl2">View → Command Palette</span> ou pelo atalho:</p></div>
+          <div class="code"><span><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></span><span style="color:var(--faint);font-size:.7rem">command palette</span></div>
+          <div class="step-prose"><p>Na barra de busca que aparecer, digite <span class="hl">flutter</span> e selecione a opção <span class="hl2">Flutter: New Project</span>.</p></div>
+          <div class="tip"><span class="tip-i">💡</span>Você também pode pressionar <kbd>F1</kbd> para abrir a Command Palette de qualquer lugar no VS Code.</div>
+          <div class="step-actions">
+            <button class="btn-done" onclick="markDone(3)">✓ Concluído</button>
+            <button class="btn-fwd" onclick="next(3)">Próximo →</button>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="step-card" data-step="4">
+        <div class="step-top" onclick="toggle(4)">
+          <div class="st-num">05</div>
+          <div class="st-info"><div class="st-title">Clonar o Flutter SDK</div><div class="st-sub">Escolha a pasta e finalize a instalação</div></div>
+          <div class="st-toggle">›</div>
+        </div>
+        <div class="step-body"><div class="step-inner">
+          <div class="step-visual"><div class="sv-bg"></div><div class="sv-grid"></div><div class="sv-glow" style="background:var(--acc)"></div><div class="sv-icon">📥</div></div>
+          <div class="step-prose">
+            <p>Ao criar o projeto, o VS Code detectará que o SDK não está instalado e exibirá o botão <span class="hl">Download SDK</span>. Clique nele.</p>
+            <p>Uma janela de seleção de pasta será aberta. Escolha onde instalar o Flutter — sugestão:</p>
+          </div>
+          <div class="code"><span>C:\src\flutter</span><button class="copy-btn" onclick="cp('C:\\src\\flutter',this)">copiar</button></div>
+          <div class="step-prose"><p>Clique em <span class="hl2">Clonar Flutter</span> e aguarde o download. Pode demorar alguns minutos dependendo da sua internet.</p></div>
+          <ul class="checklist" style="margin:12px 0">
+            <li><span class="cl-dot">◆</span>A clonagem pode levar 2–5 minutos</li>
+            <li><span class="cl-dot">◆</span>Após concluir, o VS Code abrirá um novo projeto Flutter</li>
+            <li><span class="cl-dot">◆</span>Execute o comando abaixo para verificar a instalação:</li>
+          </ul>
+          <div class="code"><span>flutter doctor</span><button class="copy-btn" onclick="cp('flutter doctor',this)">copiar</button></div>
+          <div class="tip"><span class="tip-i">🎉</span>Pronto! Pressione <kbd>F5</kbd> no VS Code para rodar o app de exemplo e testar tudo.</div>
+          <div class="step-actions">
+            <button class="btn-done" onclick="markDone(4);checkAll()">✓ Finalizar instalação</button>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="completion" id="completion">
+    <span class="comp-emoji">🎊</span>
+    <div class="comp-title">Instalação Concluída!</div>
+    <p class="comp-sub">Seu ambiente Flutter está 100% configurado. Hora de criar algo incrível.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn-doc" href="https://flutter.dev/docs" target="_blank">📚 Documentação oficial</a>
+    </div>
+  </div>
+</section>
+
+<section id="commands">
+  <div class="section-head">
+    <div class="s-tag">// Referência rápida</div>
+    <div class="s-title">Comandos Essenciais</div>
+  </div>
+  <div class="cmd-grid">
+    <div class="cmd-card">
+      <div class="cmd-icon">🩺</div>
+      <div class="cmd-title">flutter doctor</div>
+      <div class="cmd-text">Verifica o ambiente e mostra o que ainda precisa ser configurado.</div>
+      <div class="code" style="margin:0"><span>flutter doctor</span><button class="copy-btn" onclick="cp('flutter doctor',this)">copiar</button></div>
+    </div>
+    <div class="cmd-card">
+      <div class="cmd-icon">▶️</div>
+      <div class="cmd-title">flutter run</div>
+      <div class="cmd-text">Executa o app no emulador ou dispositivo conectado.</div>
+      <div class="code" style="margin:0"><span>flutter run</span><button class="copy-btn" onclick="cp('flutter run',this)">copiar</button></div>
+    </div>
+    <div class="cmd-card">
+      <div class="cmd-icon">📦</div>
+      <div class="cmd-title">flutter pub get</div>
+      <div class="cmd-text">Baixa todas as dependências do pubspec.yaml.</div>
+      <div class="code" style="margin:0"><span>flutter pub get</span><button class="copy-btn" onclick="cp('flutter pub get',this)">copiar</button></div>
+    </div>
+    <div class="cmd-card">
+      <div class="cmd-icon">🔄</div>
+      <div class="cmd-title">flutter upgrade</div>
+      <div class="cmd-text">Atualiza o Flutter para a versão estável mais recente.</div>
+      <div class="code" style="margin:0"><span>flutter upgrade</span><button class="copy-btn" onclick="cp('flutter upgrade',this)">copiar</button></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-logo">🐦 Flutter Install Guide</div>
+  <div class="footer-right">flutter.dev · Guia interativo</div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
